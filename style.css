@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
+
+/* Video */
+.video-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+iframe {
+    width: 80%;
+    height: 450px;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Letra da Música */
+.lyrics-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+    line-height: 1.8;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #FFD700;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 16px;
+    color: #ccc;
+    white-space: pre-line;  /* Para permitir a quebra de linha */
+}
+
+strong {
+    font-weight: bold;
+    color: #FFD700;
+}
+
+/* Estilos adicionais para destacar partes da letra */
+.highlight {
+    color: #FFD700;
+    font-style: italic;
+}
+
+.refrain {
+    font-weight: bold;
+    color: #FF6347;
+}

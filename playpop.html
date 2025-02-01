@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerseFinder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #03f5fd, #03ecc5); /* Gradiente bonito */
+            color: #fff;
+        }
+
+        /* Estilo da Navbar */
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #FF6347;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .playlist {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .song {
+            text-align: center;
+            max-width: 250px;
+        }
+
+        .song img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .song img:hover {
+            transform: scale(1.1); /* Efeito de zoom na imagem */
+        }
+
+        .song p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #1b1b1a;
+        }
+
+        .song a {
+            display: block;
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .song a:hover {
+            color: #FF6347;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="playlist.html">Playlist</a>
+    </div>
+
+    <div class="container">
+        <div class="title">
+            <h1>Playlist <span>POP</span></h1>
+        </div>
+
+        <div class="playlist">
+            <div class="song">
+                <a href="lyrics.html#lyrics-mkto">
+                    <img src="assets/classic-mkto.jpg" alt="MKTO - Classic"> <!-- Substitua com o caminho correto da imagem -->
+                    <p>MKTO - Classic</p>
+                    <a href="lyrics.html#lyrics-mkto">Ver Letra</a>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyrics.html#lyrics-dnce">
+                    <img src="assets/cakebythe.jpg" alt="DNCE - Cake by the Ocean"> <!-- Substitua com o caminho correto da imagem -->
+                    <p>DNCE - Cake by the Ocean</p>
+                    <a href="lyrics.html#lyrics-dnce">Ver Letra</a>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyricspop.html#lyrics-breakmyheart">
+                    <img src="assets/breakmyheart.jpg" alt="Dua Lipa - Break my Heart"> <!-- Substitua com o caminho correto da imagem -->
+                    <p>Dua Lipa - Break my Heart</p>
+                    <a href="lyricspop.html#lyrics-breakmyheart">Ver Letra</a>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyrics.html#lyrics-freefall">
+                    <img src="assets/freefall.jpg" alt="Rainbow Kitten Surprise - It's Called: Freefall"> <!-- Substitua com o caminho correto da imagem -->
+                    <p>Rainbow Kitten Surprise - It's Called: Freefall</p>
+                    <a href="lyricspop.html#lyrics-breakmyheart">Ver Letra</a>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

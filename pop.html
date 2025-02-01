@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerseFinder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        nav {
+            background-color: #222;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .section {
+            padding: 20px;
+            margin-bottom: 50px;
+        }
+        .section h1, .section h2 {
+            font-size: 2em;
+        }
+        #secao-lyrics {
+            margin-top: 50px;
+        }
+        #secao-lyrics p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        /* Estilo das playlists */
+        .playlist {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .playlist-item {
+            width: 200px;
+            margin: 20px;
+            padding: 10px;
+            background-color: #ffcc00;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .playlist-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .playlist-item h3 {
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar com links -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#secao-lyrics">Letra da Música</a>
+    </nav>
+
+    <!-- Seções das playlists -->
+    <div class="section">
+        <h1>Playlist Pop</h1>
+        <div class="playlist">
+            <!-- Playlist Item Exemplo -->
+            <div class="playlist-item">
+                <a href="lyrics.html#lyrics-mkto">
+                    <img src="assets/classic-mkto.jpg">
+                    <h3>MKTO - Classic</h3>
+                </a>
+            </div>
+            <div class="playlist-item">
+                <a href="lyrics.html#lyrics-dnce">
+                    <img src="assets/cakebythe.jpg">
+                    <h3>DNCE - Cake by the Ocean</h3>
+                </a>
+            </div>
+            <div class="playlist-item">
+                <img src="https://via.placeholder.com/200x200" alt="Capa do Álbum">
+                <h3>Nome da Música 3</h3>
+            </div>
+            <!-- Adicione mais playlist items aqui -->
+        </div>
+    </div>
+
+    <!-- Seção de Letra da Música -->
+    <div id="secao-lyrics" class="section">
+        <h2>Letra da Música</h2>
+        <p>Conteúdo da letra da música...</p>
+        <!-- Aqui você pode colocar a letra da música ou algum conteúdo relacionado -->
+    </div>
+
+</body>
+</html>

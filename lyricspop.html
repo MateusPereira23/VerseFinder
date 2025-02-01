@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerseFinder</title>
+    <style>
+        /* Fundo colorido em gradiente */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: white;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #FFD700;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Letra da Música */
+        .lyrics-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: rgba(34, 34, 34, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(255, 215, 0, 0.6);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 1.6rem;
+            line-height: 1.8;
+            text-align: center;
+            color: #FFD700;
+        }
+
+        /* Efeito de rolagem suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .top-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .top-button:hover {
+            background: #0056b3;
+        }
+        /*player esconde o soundcloud*/
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1e1e1e;
+            color: white;
+        }
+        .player-container {
+            margin: 50px auto;
+            width: 320px;
+            position: relative;
+        }
+        iframe {
+            width: 100%;
+            height: 166px;
+            position: absolute;
+            opacity: 0;
+        }
+        .controls {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: background 0.3s;
+        }
+        .controls:hover {
+            background: #444;
+        }
+        .play-btn {
+            background: #FF6347;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 18px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="playlist.html">Playlist</a>
+    </nav>
+
+    <div class="player-container">
+        <iframe id="sc-player" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1580097467&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+        
+        <div class="controls" onclick="playPause()">
+            <button id="playButton" class="play-btn">▶️ Play</button>
+        </div>
+    </div>
+    <!-- Letra da Música -->
+    <div class="lyrics-container" id="lyrics-breakmyheart">
+        <h1>Dua Lipa - Break My Heart</h1>
+        <pre>
+            I've always been the one to say the first goodbye
+Had to love and lose a hundred million times
+Had to get it wrong to know just what I like
+Now I'm falling
+
+You say my name like I have never heard before
+I'm indecisive, but, this time, I know for sure
+I hope I'm not the only one that feels it all
+Are you falling?
+
+Centre of attention
+You know you can get whatever you want from me
+Whenever you want it, baby
+It's you in my reflection
+I'm afraid of all the things you could do to me
+If I would've known it, baby
+
+I would've stayed at home
+'Cause I was doing better alone
+But when you said: Hello
+I knew that was the end of it all
+I should've stayed at home
+'Cause now there ain't no letting you go
+Am I falling in love with the one that could break my heart?
+
+Oh no, I was doing better alone
+But when you said: Hello
+I knew that was the end of it all
+I should've stayed at home
+'Cause now there ain't no letting you go
+Am I falling in love with the one that could break my heart?
+
+I wonder, when you go, if I stay on your mind
+Two can play that game, but you win me every time
+Everyone before you was a waste of time
+Yeah, you got me
+
+Centre of attention
+You know you can get whatever you want from me
+Whenever you want it, baby
+It's you in my reflection
+I'm afraid of all the things you could do to me
+If I would've known it, baby
+
+I would've stayed at home
+'Cause I was doing better alone
+But when you said: Hello
+I knew that was the end of it all
+I should've stayed at home
+'Cause now there ain't no letting you go
+Am I falling in love with the one that could break my heart?
+
+Oh no, I was doing better alone
+But when you said: Hello
+I knew that was the end of it all
+I should've stayed at home
+'Cause now there ain't no letting you go
+Am I falling in love with the one that could break my heart?
+
+Ooh, break my heart
+Ooh, break my heart
+Ooh
+Am I falling in love with the one that could break my heart?
+
+I would've stayed at home
+'Cause I was doing better alone
+But when you said: Hello
+I knew that was the end of it all
+I should've stayed at home (I would've stayed at home 'cause I–)
+'Cause now there ain't no letting you go
+Am I falling in love with the one that could break my heart?
+
+Oh no (oh no), I was doing better alone
+But when you said: Hello
+I knew that was the end of it all
+I should've stayed at home
+'Cause now there ain't no letting you go
+Am I falling in love with the one that could break my heart?
+        </pre>
+        <button class="top-button" onclick="scrollToTop()">Voltar ao Topo</button>
+    </div>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+     <script src="https://w.soundcloud.com/player/api.js"></script>
+     <script>
+         let iframe = document.getElementById("sc-player");
+         let widget = SC.Widget(iframe);
+         let isPlaying = false;
+         let playButton = document.getElementById("playButton");
+ 
+         function playPause() {
+             if (isPlaying) {
+                 widget.pause();
+                 playButton.innerText = "▶️ Play";
+             } else {
+                 widget.play();
+                 playButton.innerText = "⏸ Pause";
+             }
+             isPlaying = !isPlaying;
+         }
+     </script>
+</body>
+</html>

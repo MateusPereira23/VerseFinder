@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon/logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <title>VerseFinder</title>
+    <style>
+        /* Reseta margens e paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #000;
+            color: #FFD700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            position: relative;
+            flex-wrap: wrap; /* Permite o ajuste quando a tela for menor */
+            gap: 20px; /* Espaço entre os itens */
+        }
+
+        .left h1 {
+            height: 40px;
+            font-size: 2rem;
+            font-family: "Allura", serif;
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .left img.logo {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .right a {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .right a:hover {
+            color: white;
+        }
+
+        /* Button to toggle dark/light mode */
+        .mode-toggle {
+            background-color: #FFD700;
+            border: none;
+            padding: 8px 16px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .mode-toggle:hover {
+            background-color: #FFA500;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+
+        .hero input {
+            width: 300px;
+            padding: 12px;
+            font-size: 18px;
+            border: 2px solid #FFD700;
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .hero input:focus {
+            border-color: white;
+            background-color: #222;
+            color: white;
+        }
+
+        /* Galeria de músicas populares */
+        .popular-songs {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .popular-songs h2 {
+            font-size: 28px;
+            color: #FFD700;
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Lado a lado até ocupar o máximo disponível */
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .song {
+            text-align: center;
+            position: relative;
+        }
+
+        .song img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .song:hover img {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 16px rgba(255, 215, 0, 0.6);
+        }
+
+        .song p {
+            margin-top: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Modo claro ajustado para melhor visibilidade */
+        .light-mode {
+            background-color: #ffffff;
+            color: #222222;
+        }
+
+        .light-mode .navbar {
+            background-color: #f8f8f8;
+            color: #000000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .light-mode .navbar .right a {
+            color: #222;
+        }
+
+        .light-mode .navbar .right a:hover {
+            color: #555;
+        }
+
+        .light-mode .hero {
+            background: rgba(255, 255, 255, 0.9);
+            color: #222;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .light-mode .hero h1 {
+            color: #222;
+        }
+
+        .light-mode .hero input {
+            background-color: #fff;
+            color: #222;
+            border: 2px solid #222;
+        }
+
+        .light-mode .hero input:focus {
+            border-color: #555;
+            background-color: #f0f0f0;
+        }
+
+        .light-mode .popular-songs h2 {
+            color: #222;
+        }
+
+        .light-mode .song p {
+            color: #222;
+        }
+
+        .light-mode .song:hover img {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 16px rgba(20, 20, 20, 0.6);
+        }
+
+        .light-mode .mensagem-erro {
+            color: #222;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 10px;
+                gap: 10px; /* Ajuste no espaçamento da navbar */
+            }
+
+            .left {
+                margin-bottom: 0;
+                justify-content: center;
+            }
+
+            .right {
+                flex-direction: row;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .right .mode-toggle {
+                margin-left: 10px;
+            }
+
+            .hero {
+                padding: 30px;
+                border-radius: 5px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero input {
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .popular-songs h2 {
+                font-size: 24px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajuste para colunas menores */
+            }
+
+            .song {
+                width: 120px;
+            }
+
+            .song img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 10px;
+            }
+
+            .left img.logo {
+                width: 30px;
+            }
+
+            .left h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 20px;
+            }
+
+            .hero input {
+                width: 100%;
+                padding: 8px;
+                font-size: 14px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr; /* Musicas vão para 1 por linha */
+            }
+
+            .song {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left">
+            <img src="favicon/logo.png" alt="Logo" class="logo"> <!-- Logo à esquerda -->
+            <h1>VerseFinder</h1>
+        </div>
+        <div class="right">
+            <a href="index.html">Home</a>
+            <a href="playlist.html">Playlist</a>
+            <a href="clima.html">Clima</a>
+            <a href="vocab.html">Vocabulary</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Encontre a sua música favorita</h1>
+        <input type="text" placeholder="Digite o nome da música ou artista...">
+    </section>
+
+    <section class="popular-songs">
+        <h2>Top Letras do Momento</h2>
+        <div class="grid">
+            <div class="song">
+                <a href="lyrics.html#lyrics-mkto">
+                    <img src="assets/classic-mkto.jpg" alt="MKTO - Classic">
+                    <p>MKTO - Classic</p>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyrics.html#lyrics-dnce">
+                    <img src="assets/cakebythe.jpg" alt="DNCE - Cake by the Ocean">
+                    <p>DNCE - Cake by the Ocean</p>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyrics.html#lyrics-sweater">
+                    <img src="assets/neighbourhood.jpg" alt="The Neighbourhood - Sweater Wheater">
+                    <p>The Neighbourhood - Sweater Wheater</p>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyrics.html#lyrics-kiss">
+                    <img src="assets/madeforlovin.jpg" alt="KISS - I was Made for Lovin' You">
+                    <p>KISS - I was Made for Lovin' You</p>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyrics.html#lyrics-goosebumps">
+                    <img src="assets/goosebumps.jpg" alt="Travis Scott - Goosebumps">
+                    <p>Travis Scott - Goosebumps</p>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyrics.html#lyrics-ransom">
+                    <img src="assets/ransom.jpg" alt="Lil Tecca - Ransom feat. Juice Wrld">
+                    <p>Lil Tecca - Ransom feat. Juice Wrld</p>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyrics.html#lyrics-mujeriego">
+                    <img src="assets/mujeriego.jpg" alt="Ryan Castro - Mujeriego">
+                    <p>Ryan Castro - Mujeriego</p>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyrics.html#lyrics-paro">
+                    <img src="assets/paro.jpg" alt="Nej - Paro">
+                    <p>Nej - Paro</p>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyricspop.html#lyrics-breakmyheart">
+                    <img src="assets/breakmyheart.jpg" alt="Dua Lipa - Break my Heart">
+                    <p>Dua Lipa - Break my Heart</p>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyrics.html#lyrics-zeze">
+                    <img src="assets/zeze.jpg" alt="Kodak Black - ZEZE (Travis Scott & Offset)">
+                    <p>Kodak Black - ZEZE (Travis Scott & Offset)</p>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyrics.html#lyrics-same">
+                    <img src="assets/allgirlsarethesame.jpg" alt="Juice Wrld - All Girls are the Same">
+                    <p>Juice Wrld - All Girls are the Same</p>
+                </a>
+            </div>
+            <div class="song">
+                <a href="lyrics.html#lyrics-freefall">
+                    <img src="assets/freefall.jpg" alt="Rainbow Kitten Surprise - It's Called: Freefall">
+                    <p>Rainbow Kitten Surprise - It's Called: Freefall</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        //pesquisa seletiva//
+        document.addEventListener("DOMContentLoaded", function () {
+    const input = document.querySelector(".hero input");
+    const songs = document.querySelectorAll(".song");
+
+    input.addEventListener("input", function () {
+        const filtro = input.value.toLowerCase();
+
+        songs.forEach((song) => {
+            const nome = song.textContent.toLowerCase();
+            if (nome.includes(filtro)) {
+                song.style.display = "block";
+            } else {
+                song.style.display = "none";
+            }
+        });
+    });
+});
+
+//mostra "titulo indisponivel" caso nao encontar//
+document.addEventListener("DOMContentLoaded", function () {
+    const input = document.querySelector(".hero input");
+    const songs = document.querySelectorAll(".song");
+
+    // Criar e adicionar um elemento para a mensagem de erro
+    const mensagemErro = document.createElement("p");
+    mensagemErro.textContent = "Título indisponível";
+    mensagemErro.style.color = "#FFD700";
+    mensagemErro.style.fontSize = "18px";
+    mensagemErro.style.marginTop = "20px";
+    mensagemErro.style.display = "none"; // Escondido por padrão
+    document.querySelector(".popular-songs").appendChild(mensagemErro);
+
+    input.addEventListener("input", function () {
+        const filtro = input.value.toLowerCase();
+        let encontrou = false;
+
+        songs.forEach((song) => {
+            const nome = song.textContent.toLowerCase();
+            if (nome.includes(filtro)) {
+                song.style.display = "block";
+                encontrou = true;
+            } else {
+                song.style.display = "none";
+            }
+        });
+
+        // Exibir mensagem se não encontrar nada
+        mensagemErro.style.display = encontrou ? "none" : "block";
+    });
+});
+
+        //efeito de digitação//
+   document.addEventListener("DOMContentLoaded", function () {
+    const titulo = document.querySelector(".hero h1");
+    const texto = "Encontre a sua música favorita";
+    let index = 0;
+
+    function digitar() {
+        if (index < texto.length) {
+            titulo.textContent += texto[index];
+            index++;
+            setTimeout(digitar, 100);
+        }
+    }
+
+    titulo.textContent = "";
+    digitar();
+});
+//modo claro//
+document.addEventListener("DOMContentLoaded", function () {
+    const botaoTema = document.createElement("button");
+    botaoTema.textContent = "🌙";
+    botaoTema.style.fontSize = "20px";
+    botaoTema.style.padding = "10px";
+    botaoTema.style.border = "none";
+    botaoTema.style.cursor = "pointer";
+    document.querySelector(".navbar").appendChild(botaoTema);
+
+    botaoTema.addEventListener("click", function () {
+        document.body.classList.toggle("light-mode");
+        botaoTema.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+    });
+
+    const style = document.createElement("style");
+    style.textContent = `
+        .light-mode {
+            background-color: #f0f0f0;
+            color: #222;
+        }
+        .light-mode .navbar {
+            background-color: #fff;
+            color: #000;
+        }
+        .light-mode .hero input {
+            background-color: #fff;
+            color: #000;
+            border-color: #222;
+        }
+    `;
+    document.head.appendChild(style);
+});
+//notificação ao clicar na musica {DESATIVADO} //
+//document.addEventListener("DOMContentLoaded", function () {
+ //   const songs = document.querySelectorAll(".song a");
+
+  //  songs.forEach((song) => {
+   //     song.addEventListener("click", function (event) {
+    //        event.preventDefault();
+       //     alert("Redirecionando para a letra da música!");
+       //     window.location.href = song.href;
+    //    });
+    //});
+//});
+
+
+ </script>
+</body>
+</html>

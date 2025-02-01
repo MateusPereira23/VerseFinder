@@ -1,0 +1,157 @@
+<!DOCTYPE html> 
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerseFinder</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Vinculando o CSS -->
+</head>
+<body>
+    <style>
+        /* Reseta os margens e padding padrão */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo para a Navbar */
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none; /* Removendo o sublinhado */
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        .navbar a.active {
+            font-weight: bold;
+            text-decoration: none; /* Garantindo que o sublinhado não apareça na aba ativa */
+        }
+
+        /* Estilos para a seção de playlists */
+        .playlist-section {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .playlist-section h1 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        /* Estilo para cada item da playlist */
+        .playlist {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .playlist:hover {
+            opacity: 0.8;
+        }
+
+        /* Estilos de fundo para as playlists */
+        .rock {
+            background-color: #0a0a0a; /* Vermelho para Rock */
+        }
+
+        .pop {
+            background-color: #f5a936; /* Amarelo para POP */
+        }
+
+        .hiphop {
+            background-color: #039c36; /* Verde para Hip Hop */
+        }
+
+        .latino {
+            background-color: #4d79ff; /* Azul para Latino */
+        }
+
+        /* Ícones das playlists */
+        .icon {
+            margin-right: 15px;
+            font-size: 30px;
+        }
+
+        /* Estilo para o link */
+        .playlist-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="playlist.html" class="active">Playlist</a>
+    </div>
+
+    <div class="playlist-section">
+        <h1>Playlists</h1>
+
+        <div class="playlist rock">
+            <a href="rock.html" class="playlist-link">
+                <div class="icon">🎸</div>
+                <div class="playlist-name">Rock 'n Roll</div>
+            </a>
+        </div>
+
+        <div class="playlist pop">
+            <a href="playpop.html" class="playlist-link">
+                <div class="icon">🎤</div>
+                <div class="playlist-name">POP</div>
+            </a>
+        </div>
+
+        <div class="playlist hiphop">
+            <a href="hiphop.html" class="playlist-link">
+                <div class="icon">🎧</div>
+                <div class="playlist-name">Hip Hop</div>
+            </a>
+        </div>
+
+        <div class="playlist latino">
+            <a href="latino.html" class="playlist-link">
+                <div class="icon">🎶</div>
+                <div class="playlist-name">Internacional</div>
+            </a>
+        </div>
+    </div>
+
+
+    <script>
+        // Adiciona o efeito hover nas playlists
+const playlists = document.querySelectorAll('.playlist');
+
+playlists.forEach(playlist => {
+    playlist.addEventListener('mouseenter', () => {
+        playlist.style.transform = 'scale(1.05)'; // Aumenta o tamanho
+        playlist.style.opacity = '0.8'; // Diminui a opacidade
+    });
+
+    playlist.addEventListener('mouseleave', () => {
+        playlist.style.transform = 'scale(1)'; // Restaura o tamanho original
+        playlist.style.opacity = '1'; // Restaura a opacidade original
+    });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerseFinder</title>
+    <style>
+        /* Geral */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: white;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #FFD700;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Video */
+        .video-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        iframe {
+            width: 80%;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Letra da Música */
+        .lyrics-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+        }
+        pre {
+            white-space: pre-wrap; /* Quebra de linha automática */
+            word-wrap: break-word; /* Quebra palavras longas */
+            font-size: 1.4rem;
+            line-height: 1.6;
+            text-align: left;
+            color: #FFD700; /* Amarelo para o texto da letra */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #FFD700;
+            text-align: center;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #ccc;
+        }
+
+        /* Efeito de rolagem suave */
+        html {
+            scroll-behavior: smooth;
+        }
+        .top-button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .top-button:hover {
+            background: #0056b3;
+        }
+        a{
+            text-decoration: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="playlist.html">Playlist</a>
+    </nav>
+
+    <!-- Vídeo Incorporado MKTO - Classic -->
+    <div class="video-container">
+        <iframe 
+        width="560" height="315" src="https://www.youtube.com/embed/1vhxu2zdPOM?si=iAUcDQRsmAvkC-60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <!-- Letra da Música MKTO - Classic -->
+    <div class="lyrics-container" id="lyrics-mkto">
+        <h2>MKTO - Classic</h2>
+        <pre style="text-align: center; font-size: 1.6rem;">Hey, where's the drums?
+Woo oh
+Let's go!
+
+Woo, girl, you're shining
+Like a 5th Avenue diamond
+And they don't make you like they used to
+You're never going out of style
+
+Woo, pretty baby
+This world might have gone crazy
+The way you saved me, who could blame me
+When I just wanna make you smile
+
+I wanna thrill you like Michael
+I want to kiss you like Prince
+Let's get it on like Marvin Gaye, like Hathaway
+Write a song for you like this
+
+You' re over my head, I'm out of my mind
+Thinking I was born in the wrong time
+One of a kind, living in a world gone plastic
+Baby, you're so classic (yeah, yeah; gone plastic)
+Baby, you're so classic (yeah, yeah)
+Baby, you
+Baby, you're so classic
+
+Four dozen roses
+Anything for you to notice
+All the way to serenade you
+Doing in Sinatra style
+
+I'ma pick you up in a Cadillac
+Like a gentleman, bringin' glamour back
+Keep it real to real in the way I feel
+I could walk you down the aisle
+
+I wanna thrill you like Michael
+I want to kiss you like Prince
+Let's get it on like Marvin Gaye, like Hathaway
+Write a song for you like this
+
+You' re over my head, I'm out of my mind
+Thinking I was born in the wrong time
+It's like a rewind, everything is so <a href="vocab.html">throwback-ish</a>
+I kinda like it, like it
+
+Out of my league, old school chic
+Like a moviestar from a silver screen
+You're one of a kind, living in a world gone plastic
+Baby, you're so classic (yeah, yeah)
+Baby, you're so classic (so classic; yeah, yeah)
+Baby, you're so classic
+
+Baby you're classy, and, baby, you're sick
+I never met a girl like you ever 'til we met
+A star in the 40s, centerfold in the 50s'
+Got met trippin' out like the 60s, hippies
+
+Queen of the discotheque
+A 70s dream and a 80s best
+Hepburn, Beyoncé, Marilyn, Massey
+Girl, you're timeless
+Just so classic!
+
+You' re over my head, I'm out of my mind
+Thinking I was born in the wrong time
+It's like a rewind, everything is so throwback-ish
+I kinda like it, like it
+
+Out of my league, old school chic
+Like a moviestar from a silver screen
+You're one of a kind, living in a world gone plastic
+Baby, you're so classic (whoa, oh)
+Baby, you're so classic (yeah, yeah)
+Baby, you're so classic
+Ooh</pre>
+<button class="top-button" onclick="scrollToTop()">Voltar ao Topo</button>
+    </div>
+
+    <!-- Vídeo do SoundCloud DNCE - Cake by the Ocean -->
+    <div class="video-container">
+        <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2021117269&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/felixx_official" title="Felixx" target="_blank" style="color: #cccccc; text-decoration: none;">Felixx</a> · <a href="https://soundcloud.com/felixx_official/cake-by-the-ocean" title="Cake By The Ocean" target="_blank" style="color: #cccccc; text-decoration: none;">Cake By The Ocean</a></div>
+    </div>
+
+    <!-- Letra da Música DNCE - Cake by the Ocean -->
+    <div class="lyrics-container" id="lyrics-dnce">
+        <h2>DNCE - Cake by the Ocean</h2>
+        <pre style="text-align: center; font-size: 1.6rem;">Oh, no
+            See you walking 'round like it's a funeral 
+            Not so serious, girl, why those feet cold?
+            We just getting started, don't you tiptoe
+            Tiptoe, ah
+            
+            Waste time with a masterpiece
+            Don't waste time with a masterpiece
+            You should be rolling with me
+            You should be rolling with me, ah
+            
+            You're a real-life fantasy
+            You're a real-life fantasy
+            But you're moving so carefully
+            Let's start living dangerously
+            
+            Talk to me, baby
+            I'm going blind from this sweet, sweet craving, whoa, oh
+            Let's lose our minds and go fucking crazy
+            I-I-I-I-I keep on hoping we'll eat cake by the ocean
+            
+            Walk for me, baby
+            I'll be Diddy, you'll be Naomi, whoa, oh
+            Let's lose our minds and go fucking crazy
+            I-I-I-I-I keep on hoping we'll eat cake by the ocean
+            
+            Goddamn
+            See you licking frosting from your own hands
+            Want another taste, I'm begging: Yes, ma'am
+            I'm tired of all this candy on the dry land
+            Dry land, oh
+            
+            Waste time with a masterpiece
+            Don't waste time with a masterpiece
+            You should be rolling with me
+            You should be rolling with me, ah
+            
+            You're a real-life fantasy
+            You're a real-life fantasy
+            But you're moving so carefully
+            Let's start living dangerously (whoa)
+            
+            Talk to me, baby
+            I'm going blind from this sweet, sweet craving, whoa, oh
+            Let's lose our minds and go fucking crazy
+            I-I-I-I-I keep on hoping we'll eat cake by the ocean
+            
+            Walk for me, baby (walk for me now)
+            I'll be Diddy, you'll be Naomi, whoa, oh
+            Let's lose our minds and go fucking crazy
+            I-I-I-I-I keep on hoping we'll eat cake by the ocean (yeah, yeah)
+            
+            (Oh, ah) I-I-I-I-I keep on hoping we'll eat cake by the ocean
+            (Oh, ah) I-I-I-I-I keep on hoping we'll eat cake by the ocean<br><br>
+        </pre>
+        <button class="top-button" onclick="scrollToTop()">Voltar ao Topo</button>
+    </div>
+
+    <!-- Vídeo do SoundCloud The Neighbourhood - Sweater Wheater -->
+    <div class="video-container"><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/55492059&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/theneighbourhood" title="theneighbourhood" target="_blank" style="color: #cccccc; text-decoration: none;">theneighbourhood</a> · <a href="https://soundcloud.com/theneighbourhood/sweater-weather-1" title="&quot;Sweater Weather&quot;" target="_blank" style="color: #cccccc; text-decoration: none;">&quot;Sweater Weather&quot;</a></div></div>
+
+    <!-- Letra da Música The Neighbourhood - Sweater Wheater -->
+    <div class="lyrics-container" id="lyrics-sweater">
+        <h2>The Neighbourhood - Sweater Wheater</h2>
+        <pre style="text-align: center; font-size: 1.6rem;">All I am is a man
+            I want the world in my hands
+            I hate the beach, but I stand 
+            In California, with my toes in the sand
+            
+            Use the sleeves of my sweater
+            Let's have an adventure
+            Head in the clouds, but my gravity's centered
+            Touch my neck and I'll touch yours
+            You in those little high waisted shorts, oh
+            
+            She knows what I think about
+            And what I think about
+            One love, two mouths
+            One love, one house
+            No shirt, no blouse
+            Just us, you find out
+            Nothing that wouldn't wanna tell you about no
+            
+            'Cause it's too cold
+            For you here and now
+            So let me hold
+            Both your hands in the holes of my sweater
+            
+            And if I may just take your breath away
+            I don't mind if there's not much to say
+            Sometimes the silence guides our minds 
+            To move to a place so far away
+            
+            The goosebumps start to raise
+            The minute that my left hand meets your waist
+            And then I watch your face
+            Put my finger on your tongue, 'cause you love to taste, yeah
+            
+            These hearts adore
+            Everyone the other beats hardest for
+            Inside, this place is warm
+            Outside, it starts to pour
+            
+            Coming down
+            One love, two mouths
+            One love, one house
+            No shirt, no blouse
+            Just us, you find out
+            Nothing that I wouldn't wanna tell you about, no, no, no
+            
+            'Cause it's too cold
+            For you here and now
+            So let me hold
+            Both your hands in the holes of my sweater
+            
+            'Cause it's too cold
+            For you here and now
+            So let me hold
+            Both your hands in the holes of my sweater, ooh, ooh
+            
+            'Cause it's too cold
+            For you here and now
+            So let me hold
+            Both your hands in the holes of my sweater
+            
+            'Cause it's too cold
+            For you here and now
+            Let me hold
+            Both your hands in the holes of my sweater
+            
+            It's too cold
+            It's too cold
+            The holes of my sweater<br><br>
+        </pre>
+        <button class="top-button" onclick="scrollToTop()">Voltar ao Topo</button>
+    </div>
+
+
+<!-- Vídeo do SoundCloud KISS - I was Made for Lovin'  -->
+    <div class="video-container"><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/197117776&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/dejan-novkovic-1" title="Dejan (MetallicA)" target="_blank" style="color: #cccccc; text-decoration: none;">Dejan (MetallicA)</a> · <a href="https://soundcloud.com/dejan-novkovic-1/kiss-i-was-made-for-loving-you" title="KISS - I Was Made For Loving You" target="_blank" style="color: #cccccc; text-decoration: none;">KISS - I Was Made For Loving You</a></div></div>
+
+    <!-- Letra da Música KISS - I was Made for Lovin' You -->
+    <div class="lyrics-container" id="lyrics-kiss">
+        <h2>KISS - I was Made for Lovin' You</h2>
+        <pre style="text-align: center; font-size: 1.6rem;">I Was Made For Lovin' You
+            KISS
+            
+            Mmmm, yeah
+            
+            Do, do, do, do, do, do, do, do, do
+            Do, do, do, do, do, do, do
+            Do, do, do, do, do, do, do, do, do
+            Do, do, do, do, do, do, do
+            
+            Tonight
+            I wanna give it all to you
+            In the darkness
+            There's so much I want to do
+            
+            And tonight
+            I wanna <a href="vocab.html">lay it at your feet</a>
+            'Cause, girl, I was made for you
+            And, girl, you were made for me
+            
+            I was made for loving you, baby
+            You were made for loving me
+            And I can't get enough of you, baby
+            Can you get enough of me?
+            
+            Tonight
+            I wanna see it in your eyes
+            Feel the magic
+            There's something that drives me wild
+            
+            And tonight
+            We're going to make it all come true
+            'Cause, girl, you were made for me
+            And, girl, I was made for you
+            
+            I was made for loving you, baby
+            You were made for loving me
+            And I can't get enough of you, baby
+            Can you get enough of me?
+            
+            I was made for loving you, baby
+            You were made for loving me
+            And I can give it all to you, baby
+            Can you give it all to me?
+            
+            Oh, oh, oh
+            Can't get enough
+            Oh, oh
+            I can't get enough
+            Oh, oh, oh
+            I can't get enough
+            Yeah
+            
+            Do, do, do, do, do, do, do, do, do
+            Do, do, do, do, do, do, do
+            
+            I was made for loving you, baby
+            You were made for loving me
+            And I can't get enough of you, baby
+            Can you get enough of me?
+            
+            Oh, I was made
+            You were made
+            I can't get enough
+            No, I can't get enough
+            
+            I was made for loving you, baby
+            You were made for loving me<br><br>
+        </pre>
+        <button class="top-button" onclick="scrollToTop()">Voltar ao Topo</button>
+    </div>
+
+    <div class="video-container"><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/349869847&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/cslav34" title="Cslav" target="_blank" style="color: #cccccc; text-decoration: none;">Cslav</a> · <a href="https://soundcloud.com/cslav34/rthytjty" title="Goosebumps - Travis Scott" target="_blank" style="color: #cccccc; text-decoration: none;">Goosebumps - Travis Scott</a></div></div>
+    <!-- Letra da Música Travis Scott - Goosebumps -->
+    <div class="lyrics-container" id="lyrics-goosebumps">
+        <h2>Travis Scott - Goosebumps</h2>
+        <pre style="text-align: center; font-size: 1.6rem;">I get those goosebumps every time, yeah, you come around, yeah
+            You ease my mind, you make everything feel fine
+            Worried 'bout those comments
+            I'm way too numb, yeah, it's way too dumb, yeah
+            I get those goosebumps every time, I need the Heimlich
+            Throw that to the side, yeah
+            I get those goosebumps every time, yeah
+            When you're not around (straight up)
+            When you throw that to the side, yeah (it's lit)
+            I get those goosebumps every time, yeah
+            
+            7-1-3
+            Through the 2-8-1, yeah, I'm ridin', why they on me?
+            Why they on me? I'm flyin', sippin' low-key
+            I'm sippin' low-key in Onyx, rider, rider
+            
+            I get those goosebumps every time, yeah, you come around, yeah
+            You ease my mind, you make everything feel fine
+            Worried 'bout those comments
+            I'm way too numb, yeah, it's way too dumb, yeah
+            I get those goosebumps every time, I need the Heimlich
+            Throw that to the side, yeah
+            I get those goosebumps every time, yeah
+            When you're not around (straight up)
+            When you throw that to the side, yeah (it's lit)
+            I get those goosebumps every time, yeah
+            
+            When I'm pullin' up right beside ya
+            Pop star, lil' Mariah
+            When I text a cute game, wildness
+            Throw a stack on the Bible
+            Never Snapchat or took molly
+            She fall through plenty, her and all her ginnies, yeah
+            We at the top floor, right there off Doheny, yeah
+            Oh no, I can't fuck with y'all
+            Yeah, when I'm with my squad I cannot do no wrong
+            Yeah, saucin' in the city, don't get misinformed
+            Yeah, they gon' pull up on you (brr, brr, brr)
+            Yeah, we gon' do some things, some things you can't relate
+            Yeah, 'cause we from a place, a place you cannot stay
+            Oh, you can't go, oh, I don't know
+            Oh, back the fuck up off me (brr, brr, brr)
+            
+            I get those goosebumps every time, yeah, you come around, yeah
+            You ease my mind, you make everything feel fine
+            Worried 'bout those comments
+            I'm way too numb, yeah, it's way too dumb, yeah
+            I get those goosebumps every time, I need the Heimlich
+            Throw that to the side, yeah
+            I get those goosebumps every time, yeah
+            When you're not around (straight up)
+            When you throw that to the side, yeah (it's lit)
+            I get those goosebumps every time, yeah
+        </pre>
+        <button class="top-button" onclick="scrollToTop()">Voltar ao Topo</button>
+    </div>
+
+    <div class="video-container"><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/665884724&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/liltecca" title="Lil Tecca ✰" target="_blank" style="color: #cccccc; text-decoration: none;">Lil Tecca ✰</a> · <a href="https://soundcloud.com/liltecca/ransomwrld" title="Lil Tecca feat. Juice WRLD - Ransom" target="_blank" style="color: #cccccc; text-decoration: none;">Lil Tecca feat. Juice WRLD - Ransom</a></div></div>
+    <!-- Letra da Música Lil Tecca - Ransom feat. Juice Wrld -->
+    <div class="lyrics-container" id="lyrics-ransom">
+        <h2>Lil Tecca - Ransom feat. Juice Wrld</h2>
+        <pre style="text-align: center; font-size: 1.6rem;">[Lil Tecca]
+            Turn you to a dancer
+            Yeah
+            Internet Money, bitch
+            
+            I got black, I got white, what you want?
+            Hop outside a Ghost and hop up in a Phantom
+            I know I'm 'bout to blow, I ain't dumb
+            They try to take my flow, I take they ass for ransom
+            I know that I'm gone
+            They see me blowin' up, now they say they want some
+            I got two twin Glocks, turn you to a dancer
+            I see two twin opps, leave 'em on a banner
+            And I got two thick thots, wanna lick the gang, yeah
+            
+            I got red, I got blue, what you want?
+            The Chanel or Balenciaga, Louis and Vuitton
+            She know I got the Fendi, Prada when I hit Milan
+            I needed me a die or rider, I need me the one
+            I started from the bottom, you could see the way I stunt
+            I want all the diamonds, I want that shit to weigh a ton
+            The opps, they tryna line me 'cause they hate the place I'm from
+            But them niggas don't know me, they just know the place I'm from
+            I got lots of shawties tryna pull up to my place
+            But you ain't want me last year, so just get up out my face
+            They all up in my inbox, so I know they want a taste
+            I know they want my downfall, lil' nigga, are you laced?
+            
+            I got black, I got white, what you want?
+            Hop outside a Ghost and hop up in a Phantom
+            I know I'm 'bout to blow, I ain't dumb
+            They try to take my flow, I take they ass for ransom
+            I know that I'm gone
+            They see me blowin' up, now they say they want some
+            I got two twin Glocks, turn you to a dancer
+            I see two twin opps, leave 'em on a banner
+            And I got two thick thots, wanna lick the gang, yeah
+            
+            [Juice WRLD]
+            I'm in it to win it, I'ma be the best, yes, sir
+            Started from the bottom, I ain't have no one, yes, sir
+            Had to get big on them niggas, Bruce Banner
+            Bro split wigs, turn a nigga to a dancer
+            I got hard, I got soft, what you want?
+            Since the day that I've been on, they been blowing up my phone
+            I can't hear 'em, I got all this loud in my lungs
+            Thumbin' through these blue faces while I'm smoking on Runtz
+            Uh, I'm in the hills (ooh, yeah), countin' them bills (ooh, yeah)
+            All baguette diamonds (ooh, yeah), chandelier give her chills (yeah)
+            Feel like yesterday I was just watching Fresh Prince (uh)
+            Now the crib look like Bel-Air, rip to Uncle Phil
+            Money big, Uncle Phil, twin Glocks, Phil and Lil
+            Niggas hate, Uncle Tom, spin them off me, carousel
+            Get 'em off me, go to hell, silencer, kill 'em soft
+            Tecca'll take you for ransom, me, I'll put you in a coffin
+            
+            [Lil Tecca]
+            I got black, I got white, what you want?
+            Hop outside a Ghost and hop up in a Phantom
+            I know I'm 'bout to blow, I ain't dumb
+            They try to take my flow, I take they ass for ransom
+            I know that I'm gone
+            They see me blowin' up, now they say they want some
+            I got two twin Glocks, turn you to a dancer
+            I see two twin opps, leave 'em on a banner
+            And I got two thick thots, wanna lick the gang, yeah
+        </pre>
+        <button class="top-button" onclick="scrollToTop()">Voltar ao Topo</button>
+    </div>
+
+    <div class="video-container"><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1208037202&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-133010851" title="Pirated Life" target="_blank" style="color: #cccccc; text-decoration: none;">Pirated Life</a> · <a href="https://soundcloud.com/user-133010851/ryan-castro-mujeriego" title="Ryan Castro - Mujeriego" target="_blank" style="color: #cccccc; text-decoration: none;">Ryan Castro - Mujeriego</a></div></div>
+    <!-- Letra da Música Ryan Castro - Mujeriego -->
+    <div class="lyrics-container" id="lyrics-mujeriego">
+        <h2>Ryan Castro - Mujeriego</h2>
+        <pre style="text-align: center; font-size: 1.6rem;">Mujeriego
+            Ryan Castro
+            
+            (King Records)
+            Ladies and gentlemen
+            Con ustedes: Ryan Castro and SOG
+            Agarren a su pareja y prepárense, jaja
+            Una copita de ron
+            
+            Por culpa de la calle, el dinero y el alcohol
+            Me volví mujeriego, perdóname, Señor
+            
+            Ay-ay-ay, soy un mujeriego
+            Ay-ay-ay, y yo nunca lo niego
+            Cuando me robo a una, chao y hasta luego
+            Ay-ay-ay, me gritan mujeriego
+            
+            Todas las veo buenas, si bebo ron
+            La blanquita y la morena, si bebo ron
+            La gordita cara de tierna, si bebo ron
+            La flaquita cara de Barbie bailando en el balcón
+            
+            Ay-ay-ay, soy un mujeriego
+            Ay-ay-ay, y yo nunca lo niego
+            Cuando me robo a una, chao y hasta luego
+            Ay-ay-ay, me gritan mujeriego
+            
+            ¡Mujeriego! Me gusta vacilar
+            ¡Mujeriego! Yo te saco a bailar
+            ¡Mujeriego! La vecina está buena
+            ¡Mujeriego! Yo ya le cogí la vena
+            
+            Por culpa de la calle, el dinero y el alcohol
+            Me volví mujeriego, perdóname, Señor
+            
+            Ay-ay-ay, soy un mujeriego
+            Ay-ay-ay, y yo nunca lo niego
+            Cuando me robo a una, chao y hasta luego
+            Ay-ay-ay, me gritan mujeriego
+            
+            Yo la saco a bailar aunque sea mayor que yo
+            Me la robé en la cuadra y su novio no me vio
+            Le doy este peluche de traído de Niño Dios
+            Y en enero de vacaciones pa' la Piedra del Peñol
+            
+            ¡Mujeriego! Me gusta vacilar
+            ¡Mujeriego! Yo te saco a bailar
+            ¡Mujeriego! La vecina está buena
+            ¡Mujeriego! Yo ya le cogí la vena
+            
+            Ay!, sagrado rostro, SOG
+            Esa sardina esta como buena
+            Esta la hicimos pa' que bailen las niñas, las señora'
+            Los manes y las tías, todo el mundo
+            
+            Dime, SOG
+            The Ryan Castro, King Castro
+            El cantante del ghetto
+            Qué chimba, SOG, jaja
+            De regalito de Navidad
+            Pa' que bailen todas las niñas y las tías
+            (Kapital Music)
+            
+            ¡Pum-pum-pum-pum-pum-pum!
+        </pre>
+        <button class="top-button" onclick="scrollToTop()">Voltar ao Topo</button>
+    </div>
+
+    <div class="video-container"><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1521772027&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/emma-world-136082163" title="Laurine" target="_blank" style="color: #cccccc; text-decoration: none;">Laurine</a> · <a href="https://soundcloud.com/emma-world-136082163/nej-paro" title="Nej - Paro" target="_blank" style="color: #cccccc; text-decoration: none;">Nej - Paro</a></div></div>
+    <!-- Letra da Música Nej - Paro -->
+    <div class="lyrics-container" id="lyrics-paro">
+        <h2>Nej - Paro</h2>
+        <pre style="text-align: center; font-size: 1.6rem;">Holà, holà, hello, tu m'harcèles au tél', allô?
+            Tu m'donnais plus trop d'nouvelles quand j'avais la tête sous l'eau
+            Avec ou sans ami, j'aurais bâti ma vie loin du mal et des mots
+            J'ai franchi les paliers (ouh-ouh-ouh), ma beauté m'a fait défaut
+            
+            Est-ce que j'dois m'méfier de toi plus que les autres?
+            Ton cœur me veut mais tu n'me dis pas les choses
+            Tu n'me dis pas les choses, oh, oh, oh
+            
+            Allô? Allô? Allô? j'deviens paro, paro, paro
+            Allô? Allô? Allô? j'deviens paro, paro, paro
+            Allô? Allô? Allô? j'deviens paro, paro, paro
+            Allô? Allô? Allô? j'deviens paro, paro, paro
+            
+            J'te demande pas, j'ai passé l'âge, j'pourrais juste être ta belle
+            J'veux pas de ton empathie, chéri, j'veux pas du minimum
+            Fais de moi ton alliée, même si la vie t'a bousillé
+            Laisse-moi le temps, j'vais réparer
+            À deux, ça le fait mieux, toi et moi, c'est le feu mais te suivre, c'est dangereux (eh)
+            J'pouvais pas trouver mieux, on m'dit qu't'es pas sérieux, me prends pas pour un jeu
+            
+            Est-ce que j'dois m'méfier de toi plus que les autres?
+            Ton cœur me veut mais tu n'me dis pas les choses
+            Tu n'me dis pas les choses, oh, oh, oh
+            
+            Allô? Allô? Allô? j'deviens paro, paro, paro
+            Allô? Allô? Allô? j'deviens paro, paro, paro
+            Allô? Allô? Allô? j'deviens paro, paro, paro
+            Allô? Allô? Allô? j'deviens paro, paro, paro
+            
+            Allô? Allô? Allô? j'deviens paro, paro, paro
+            Allô? Allô? Allô? j'deviens paro, paro, paro
+            Allô? Allô? Allô? j'deviens paro, paro, paro
+            Allô? Allô? Allô? j'deviens paro, paro, paro
+            
+            Aïe, aïe, aïe
+            Aïe, aïe, aïe
+            Aïe, aïe, aïe, ah
+            Aïe, aïe, aïe
+            Aïe, aïe, aïe
+            Aïe, aïe, aïe, ah
+        </pre>
+        <button class="top-button" onclick="scrollToTop()">Voltar ao Topo</button>
+    </div>
+
+    <div class="video-container"><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/512883342&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/kodak-black" title="Kodak Black" target="_blank" style="color: #cccccc; text-decoration: none;">Kodak Black</a> · <a href="https://soundcloud.com/kodak-black/zeze-feat-travis-scott-offset-1" title="ZEZE (feat. Travis Scott &amp; Offset)" target="_blank" style="color: #cccccc; text-decoration: none;">ZEZE (feat. Travis Scott &amp; Offset)</a></div></div>
+    <!-- Letra da Música Kodak Black - ZEZE (Travis Scott & Offset) -->
+    <div class="lyrics-container" id="lyrics-zeze">
+        <h2>Kodak Black - ZEZE (Travis Scott & Offset)</h2>
+        <pre style="text-align: center; font-size: 1.6rem;">D.A. got that dope!
+            
+            [Travis Scott]
+            Ice water, turned Atlantic (freeze)
+            Nightcrawlin' in the Phantom (skrrt, skrrt)
+            Told them hoes that don't you panic
+            Took an island, (yeah) flood the mansion (big water)
+            Dropped the roof, more expansion
+            Drive a coupe you can stand in (it's lit)
+            See the bitches undercover (in the sheets)
+            I'm an ass and titties lover (big ass)
+            Guess we all made for each other
+            Now that all the dawgs free (yeah, yeah)
+            And we out in these streets (alright)
+            Can you do it, can you pop it for me?
+            
+            [Kodak Black]
+            Pull up in a Demon, on God (on God)
+            Lookin' like I still do fraud (fraud)
+            Flyin' private jet with the rod (rod)
+            This that Z shit, this that Z shit (this that Z shit)
+            Pull up in a Demon, on God (on God)
+            Lookin' like I still do fraud (fraud)
+            Flyin' private jet with the rod (rod)
+            This that Z shit, this that Z shit (this that Z shit)
+            
+            [Offset]
+            Offset! Blow the brains out the coupe (boo)
+            Police wanna talk, but I'm on mute (woo-woo, hey)
+            I'ma bust her wrist down 'cause she cute (ice)
+            Fuck her on a yacht, dive in a pool (yeah)
+            She an addict (addict), addict for the lifestyle and the Patek (Patek)
+            Big daddy, have you ever felt Chanel fabrics? (Chanel)
+            I be drippin' to death, I need a casket (drippin')
+            And we got more stripes than the ref, he foul, TEC him (bow, stripes)
+            In the middle of the field like David Beckham (field, bow-bow)
+            All my niggas locked up, for real, I'm tryna help 'em (free, free)
+            When I got a mil', got me the chills, don't know what happened (hoo, chills)
+            Pop pills, do what you feel, I'm on that zombie (hey, hoo)
+            I'm more like Gaddafi, I'm not no Gandhi (Gaddafi, hey)
+            I'm more like I'm David, Goliath runnin' (hey, hey)
+            Niggas be clonin', I find it funny (clone, haha)
+            We from the Nawf, straight out of the dungeon (we from the Nawf, hey)
+            I go in her mouth, she can't tell me nothin' (eghck, eghck, egchk)
+            300, the watch is out of your budget (woo, woo, 300)
+            Mean-muggin' got me clutchin'
+            Yeah, and this stick right out of Russia
+            
+            [Travis Scott]
+            Ice water, turned Atlantic (freeze)
+            Nightcrawlin' in the Phantom (skrrt, skrrt)
+            Told them hoes that don't you panic
+            Took an island, (yeah) flood the mansion (big water)
+            Dropped the roof, more expansion
+            Drive a coupe you can stand in (it's lit)
+            See the bitches undercover (in the sheets)
+            I'm an ass and titties lover (big ass)
+            Guess we all made for each other
+            Now that all the dawgs free (yeah, yeah)
+            And we out in these streets (alright)
+            Can you do it, can you pop it for me?
+            
+            [Kodak Black]
+            Pull up in a Demon, on God (on God)
+            Lookin' like I still do fraud (fraud)
+            Flyin' private jet with the rod (rod)
+            This that Z shit, this that Z shit (this that Z shit)
+            Pull up in a Demon, on God (on God)
+            Lookin' like I still do fraud (fraud)
+            Flyin' private jet with the rod (rod)
+            This that Z shit, this that Z shit (this that Z shit)
+            
+            In a Hellcat 'cause I'm a hell-raiser
+            Self-made, I don't owe a nigga nann favor
+            When you get that money, nigga, keep your heart
+            I'm slidin' in a coupe, ain't got no key to start
+            I got the fire on me in BET Awards
+            When your well run dry, you know you need me for it
+            When I pull up in the Buick, you know what I'm doin'
+            If the police get behind me, I'm fleein' and eludin'
+            Sleepin' on the palette turned me to a savage
+            I'm a project baby, now I stay in Calabasas
+            Like I still serve fiends, like I'm still jackin'
+            I be sippin' on lean, tryna keep balance
+            Hit that Z-Walk, Dickie's with my Reeboks
+            I don't say much, I just let the heat talk
+            Your jewelry water whip, diamonds like re-rock
+            My lil' baby ride the dick like a seesaw
+            When I stepped up on the scene, I was on a bean
+            When I jumped up out the Beam', I was in Celine
+            Baby girl you just a fling, that ain't what I mean
+            Money bustin' out my jeans like I do the scheme
+            
+            Pull up in a demon, on God (on God)
+            Lookin' like I still do fraud (fraud)
+            Flyin' private jet with the rod (rod)
+            This that Z shit, this that Z shit (this that Z shit)
+            Pull up in a Demon, on God (on God)
+            Lookin' like I still do fraud (fraud)
+            Flyin' private jet with the rod (rod)
+            This that Z shit, this that Z shit (this that Z shit)
+            
+            Uh-huh, ha, oh-ah-oh
+            Uh-huh, ha, oh-ah-oh
+            Uh-huh, ha, oh-ah-oh
+            Uh-huh, ha, oh-ah-oh
+        </pre>
+        <button class="top-button" onclick="scrollToTop()">Voltar ao Topo</button>
+    </div>
+
+    <div class="video-container"><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1641439923&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/rsharkie" title="sped up central" target="_blank" style="color: #cccccc; text-decoration: none;">sped up central</a> · <a href="https://soundcloud.com/rsharkie/all-girls-are-the-same-sped-up" title="All Girls Are The Same (Sped Up) - Juice WRLD" target="_blank" style="color: #cccccc; text-decoration: none;">All Girls Are The Same (Sped Up) - Juice WRLD</a></div></div>
+    <!-- Letra da Música Juice Wrld - All Girl are the Same -->
+    <div class="lyrics-container" id="lyrics-same">
+        <h2>Juice Wrld - All Girl are the Same</h2>
+        <pre style="text-align: center; font-size: 1.6rem;">All Girls Are The Same
+            Juice WRLD
+            
+            They're rotting my brain, love
+            These hoes are the same
+            
+            I admit it, another hoe got me finished
+            Broke my heart, oh no you didn't
+            Fuck sippin', I'mma down a whole bottle
+            Hard liquor, hard truth can't swallow
+            Need a bartender, put me out my sorrow
+            Wake up the next day in the Monte Carlo
+            With a new woman
+            Tell me she from Colorado
+            And she love women
+            She'll be gone by tomorrow
+            Who am I kiddin'
+            All this jealousy and agony that I sit in
+            I'm a jealous boy, really feel like John Lennon
+            I just want real love, guess it's been a minute
+            Pissed off from the way that I don't fit in, I don't fit in
+            Tell me what's the secret to love, I don't get it
+            Feel like I be runnin' a race I'm not winnin'
+            Ran into the devil today and she grinnin'
+            
+            Hey, these girls are the same
+            All girls are the same
+            They're rotting my brain, love
+            Think I need a change
+            Before I go insane, love
+            All girls are the same
+            They're rotting my brain, love
+            Think I need a change
+            Before I go insane, love
+            
+            Ten minutes, she tell me it would take ten minutes
+            To break my heart, oh no she didn't
+            Fuck living, Imma drown in my sorrow
+            Fuck giving, Imma take not borrow
+            And I'm still sinnin'
+            I'm still losing my mind
+            I know I been trippin'
+            I'm still wasting my time
+            All the time given, am I dying, am I living
+            It's fuck feelin's, my sorrow go up to the ceilin'
+            
+            Now I am insane
+            Demons in my brain, love
+            Peace I can't obtain
+            Cause all these girls the same, love
+            Now I am insane
+            Demons in my brain, love
+            Peace I can't obtain
+            Cause all these girls the same, love
+        </pre>
+        <button class="top-button" onclick="scrollToTop()">Voltar ao Topo</button>
+    </div>
+
+    <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/0IbBulU4y5Y?si=NwSLp17dmS_WeaBP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    <!-- Letra da Música Rainbow Kitten Surprise - It's Called: Freefall -->
+    <div class="lyrics-container" id="lyrics-freefall">
+        <h2>Rainbow Kitten Surprise - It's Called: Freefall</h2>
+        <pre style="text-align: center; font-size: 1.6rem;">Called to the Devil and the Devil did come
+            I said to the Devil: Devil, do you like drums?
+            Do you like cigarettes, dominoes, rum?
+            He said: Only sundown, Sundays, Christmas
+            
+            Some day's end, when I need a few friends
+            Now and again, I could never hope to keep them
+            Thought to give friends what I thought that they wanted
+            Never had they needed a good friend as I've been
+            
+            Don't get me venting on friends who resent you
+            'Cause all you've ever done is been a noose to hang on to
+            They thought was a necklace and, reckless
+            They fell into hell where you both hang with nothing to do but
+            
+            Scratch, kick, let gravity win, like
+            Fuck this, let gravity win, like
+            You could leave it all behind
+            Even the Devil needs time alone sometimes
+            
+            You could let it all go
+            You could let it all go
+            It's called freefall
+            It's called freefall
+            
+            Called to the Devil and the Devil said: Quit
+            Can't be bothered, better handle your shit
+            Keep about your wits, man, keep about your wits
+            Know yourself and who you came in with
+            
+            Can I sit down? I've been hustling all day
+            I can't even count how many souls I've made
+            Off the same deal you on
+            Remember: The Devil ain't a friend to no one
+            But fun, true
+            
+            You could let it all go
+            You could let it all go
+            It's called freefall
+            It's called freefall
+            
+            Called to the Devil and the Devil said: Hey
+            Why you've been calling this late?
+            It's like 2 AM and the bars all close at 10 in hell
+            That's a rule I made
+            
+            Anyway, you say you're too busy saving everybody else
+            To save yourself
+            And you don't want no help, oh, well
+            That's the story to tell, like
+            
+            You could let it all go
+            You could let it all go
+            It's called freefall
+            It's called freefall
+            
+            You could let it all go
+            You could let it all go
+            'Cause ain't shit free but falling out
+            And that shit's easy, let me show you how, it's like
+            
+            Ain't shit free but falling out
+            And that shit's easy, let me show you how, it's like
+        </pre>
+        <button class="top-button" onclick="scrollToTop()">Voltar ao Topo</button>
+    </div>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
