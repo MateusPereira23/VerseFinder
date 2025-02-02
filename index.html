@@ -32,6 +32,7 @@
             gap: 20px; /* Espaço entre os itens */
         }
 
+        /* Logo e nome do site na navbar */
         .left h1 {
             height: 40px;
             font-size: 2rem;
@@ -48,6 +49,7 @@
             margin-right: 10px;
         }
 
+        /* Links de navegação */
         .right {
             display: flex;
             gap: 20px;
@@ -123,7 +125,31 @@
             color: #FFD700;
             margin-bottom: 30px;
         }
+        
+    /*centraliza as musicas ao aparecer*/
+        .popular-songs .grid {
+    display: flex; /* Altera para flexbox */
+    justify-content: center; /* Centraliza a grid horizontalmente */
+    align-items: center; /* Centraliza a grid verticalmente (caso haja mais de uma linha de itens) */
+    flex-wrap: wrap; /* Permite que os itens da grid quebrem para a próxima linha, se necessário */
+    gap: 20px; /* Mantém o espaçamento entre os itens */
+}
+.song {
+    text-align: center; /* Garante que o texto dentro de cada música será centralizado */
+    display: flex; /* Faz com que o conteúdo dentro da .song seja um flex container */
+    flex-direction: column; /* Organiza o conteúdo (imagem e texto) em coluna */
+    justify-content: center; /* Alinha o conteúdo no centro verticalmente */
+    align-items: center; /* Alinha o conteúdo no centro horizontalmente */
+}
 
+.song img {
+    width: 100%; /* Faz com que a imagem ocupe toda a largura disponível no contêiner da música */
+    max-width: 250px; /* Define uma largura máxima para a imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* Mantém o arredondamento nas bordas */
+}
+
+        /* Grid responsivo para exibição das músicas */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Lado a lado até ocupar o máximo disponível */
@@ -316,6 +342,7 @@
             <a href="playlist.html">Playlist</a>
             <a href="clima.html">Clima</a>
             <a href="vocab.html">Vocabulary</a>
+            <a href="teste.html">teste</a>
         </div>
     </nav>
 
