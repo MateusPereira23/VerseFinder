@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #004aad, #00d4ff);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+            transition: transform 0.2s ease-in-out;
+            font-size: 18px;
+        }
+        .navbar a:hover {
+            transform: scale(1.2);
+        }
+
+        /* CONTEÚDO */
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+            margin: 100px auto 20px;
+        }
+        input, select, button {
+            margin: 10px;
+            padding: 8px;
+            font-size: 16px;
+            width: 90%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            cursor: pointer;
+            background: #ff9800;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background: #e68900;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#">Outros</a>
+    </div>
+
+    <!-- Conversor de Temperatura -->
+    <div class="container">
+        <h2>Conversor de Temperatura</h2>
+        <input type="number" id="tempInput" placeholder="Digite a temperatura">
+        <select id="unit">
+            <option value="C">Celsius para Fahrenheit</option>
+            <option value="F">Fahrenheit para Celsius</option>
+        </select>
+        <button onclick="converterTemperatura()">Converter</button>
+        <h3 id="resultadoTemp"></h3>
+    </div>
+
+    <!-- Conversor de Altura -->
+    <div class="container">
+        <h2>Conversor de Altura</h2>
+        <input type="number" id="altura" placeholder="Digite a altura">
+        <select id="unidadeInicial">
+            <option value="cm">Centímetros</option>
+            <option value="m">Metros</option>
+            <option value="ft">Pés</option>
+        </select>
+        <span>para</span>
+        <select id="unidadeFinal">
+            <option value="cm">Centímetros</option>
+            <option value="m">Metros</option>
+            <option value="ft">Pés</option>
+        </select>
+        <br>
+        <button onclick="converterAltura()">Converter</button>
+        <h3 id="resultadoAltura"></h3>
+    </div>
+
+    <script>
+        function converterTemperatura() {
+            let temp = document.getElementById("tempInput").value;
+            let unit = document.getElementById("unit").value;
+            let resultado = document.getElementById("resultadoTemp");
+
+            if (temp === "") {
+                resultado.innerText = "Digite um valor válido!";
+                return;
+            }
+
+            temp = parseFloat(temp);
+            let tempConvertida;
+
+            if (unit === "C") {
+                tempConvertida = (temp * 9/5) + 32;
+                resultado.innerText = `${temp}°C = ${Math.round(tempConvertida)}°F`;
+            } else {
+                tempConvertida = (temp - 32) * 5/9;
+                resultado.innerText = `${temp}°F = ${Math.round(tempConvertida)}°C`;
+            }
+        }
+
+        function converterAltura() {
+            let altura = parseFloat(document.getElementById("altura").value);
+            let unidadeInicial = document.getElementById("unidadeInicial").value;
+            let unidadeFinal = document.getElementById("unidadeFinal").value;
+            let resultado = document.getElementById("resultadoAltura");
+
+            if (isNaN(altura) || altura <= 0) {
+                resultado.innerText = "Digite um valor válido!";
+                return;
+            }
+
+            let alturaConvertida;
+
+            if (unidadeInicial === "cm") {
+                if (unidadeFinal === "m") alturaConvertida = altura / 100;
+                else if (unidadeFinal === "ft") alturaConvertida = altura / 30.48;
+                else alturaConvertida = altura;
+            } 
+            else if (unidadeInicial === "m") {
+                if (unidadeFinal === "cm") alturaConvertida = altura * 100;
+                else if (unidadeFinal === "ft") alturaConvertida = altura * 3.281;
+                else alturaConvertida = altura;
+            } 
+            else if (unidadeInicial === "ft") {
+                if (unidadeFinal === "cm") alturaConvertida = altura * 30.48;
+                else if (unidadeFinal === "m") alturaConvertida = altura / 3.281;
+                else alturaConvertida = altura;
+            }
+
+            resultado.innerText = `Resultado: ${alturaConvertida.toFixed(2)} ${unidadeFinal}`;
+        }
+    </script>
+
+</body>
+</html>

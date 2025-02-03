@@ -1,0 +1,321 @@
+/* Reseta margens e paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #000;
+            color: #FFD700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            position: relative;
+            flex-wrap: wrap; /* Permite o ajuste quando a tela for menor */
+            gap: 20px; /* Espaço entre os itens */
+        }
+
+        /* Logo e nome do site na navbar */
+        .left h1 {
+            height: 40px;
+            font-size: 2rem;
+            font-family: "Allura", serif;
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .left img.logo {
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        /* Links de navegação */
+        .right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .right a {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .right a:hover {
+            color: white;
+        }
+
+        /* Button to toggle dark/light mode */
+        .mode-toggle {
+            background-color: #FFD700;
+            border: none;
+            padding: 8px 16px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .mode-toggle:hover {
+            background-color: #FFA500;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+
+        .hero input {
+            width: 300px;
+            padding: 12px;
+            font-size: 18px;
+            border: 2px solid #FFD700;
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .hero input:focus {
+            border-color: white;
+            background-color: #222;
+            color: white;
+        }
+
+        /* Galeria de músicas populares */
+        .popular-songs {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .popular-songs h2 {
+            font-size: 28px;
+            color: #FFD700;
+            margin-bottom: 30px;
+        }
+        
+    /*centraliza as musicas ao aparecer*/
+        .popular-songs .grid {
+    display: flex; /* Altera para flexbox */
+    justify-content: center; /* Centraliza a grid horizontalmente */
+    align-items: center; /* Centraliza a grid verticalmente (caso haja mais de uma linha de itens) */
+    flex-wrap: wrap; /* Permite que os itens da grid quebrem para a próxima linha, se necessário */
+    gap: 20px; /* Mantém o espaçamento entre os itens */
+}
+.song {
+    text-align: center; /* Garante que o texto dentro de cada música será centralizado */
+    display: flex; /* Faz com que o conteúdo dentro da .song seja um flex container */
+    flex-direction: column; /* Organiza o conteúdo (imagem e texto) em coluna */
+    justify-content: center; /* Alinha o conteúdo no centro verticalmente */
+    align-items: center; /* Alinha o conteúdo no centro horizontalmente */
+}
+
+.song img {
+    width: 100%; /* Faz com que a imagem ocupe toda a largura disponível no contêiner da música */
+    max-width: 250px; /* Define uma largura máxima para a imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* Mantém o arredondamento nas bordas */
+}
+
+        /* Grid responsivo para exibição das músicas */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Lado a lado até ocupar o máximo disponível */
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .song {
+            text-align: center;
+            position: relative;
+        }
+
+        .song img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .song:hover img {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 16px rgba(255, 215, 0, 0.6);
+        }
+
+        .song p {
+            margin-top: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Modo claro ajustado para melhor visibilidade */
+        .light-mode {
+            background-color: #ffffff;
+            color: #222222;
+        }
+
+        .light-mode .navbar {
+            background-color: #f8f8f8;
+            color: #000000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .light-mode .navbar .right a {
+            color: #222;
+        }
+
+        .light-mode .navbar .right a:hover {
+            color: #555;
+        }
+
+        .light-mode .hero {
+            background: rgba(255, 255, 255, 0.9);
+            color: #222;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .light-mode .hero h1 {
+            color: #222;
+        }
+
+        .light-mode .hero input {
+            background-color: #fff;
+            color: #222;
+            border: 2px solid #222;
+        }
+
+        .light-mode .hero input:focus {
+            border-color: #555;
+            background-color: #f0f0f0;
+        }
+
+        .light-mode .popular-songs h2 {
+            color: #222;
+        }
+
+        .light-mode .song p {
+            color: #222;
+        }
+
+        .light-mode .song:hover img {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 16px rgba(20, 20, 20, 0.6);
+        }
+
+        .light-mode .mensagem-erro {
+            color: #222;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 10px;
+                gap: 10px; /* Ajuste no espaçamento da navbar */
+            }
+
+            .left {
+                margin-bottom: 0;
+                justify-content: center;
+            }
+
+            .right {
+                flex-direction: row;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .right .mode-toggle {
+                margin-left: 10px;
+            }
+
+            .hero {
+                padding: 30px;
+                border-radius: 5px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero input {
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .popular-songs h2 {
+                font-size: 24px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajuste para colunas menores */
+            }
+
+            .song {
+                width: 120px;
+            }
+
+            .song img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 10px;
+            }
+
+            .left img.logo {
+                width: 30px;
+            }
+
+            .left h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 20px;
+            }
+
+            .hero input {
+                width: 100%;
+                padding: 8px;
+                font-size: 14px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr; /* Musicas vão para 1 por linha */
+            }
+
+            .song {
+                width: 100%;
+            }
+        }
