@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyrics Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #121212;
+            color: white;
+        }
+ /* Navbar */
+ .navbar {
+            background-color: black; /* Preto */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 14px 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar a:hover {
+            transform: scale(1.2); /* Aumenta o texto ao passar o mouse */
+            color: #1DB954; /* Verde */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #222;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #1DB954;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #music-container {
+            margin-top: 20px;
+        }
+
+        #album-cover {
+            width: 200px;
+            height: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+     <!-- Navbar -->
+     <div class="navbar">
+        <a href="index.html">Home</a>
+    </div>
+
+    <div class="container">
+        <h1>🎵 Lyrics Player</h1>
+        <input type="text" id="search" placeholder="Digite artista e música">
+        <button onclick="buscarMusica()">Buscar</button>
+        
+        <div id="music-container">
+            <iframe id="spotify-player" width="100%" height="80" frameborder="0" allowtransparency="true"></iframe>
+            <img id="album-cover" src="" alt="Capa do Álbum">
+            <h2 id="song-title"></h2>
+            <p id="lyrics"></p>
+        </div>
+    </div>
+
+    <script>
+        const API_LYRICS = "https://api.lyrics.ovh/v1/";
+        const API_SPOTIFY_SEARCH = "https://api.spotify.com/v1/search?type=track&q=";
+        const CLIENT_ID = "8086c7491db8438f94ab50be63f093ad";
+        const CLIENT_SECRET = "851e4a8aede54471b3e8ef6000a62e30";
+        let accessToken = "";
+
+        // 🔑 Obter Token de Acesso do Spotify
+        async function obterTokenSpotify() {
+            const response = await fetch("https://accounts.spotify.com/api/token", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    Authorization: "Basic " + btoa(CLIENT_ID + ":" + CLIENT_SECRET)
+                },
+                body: "grant_type=client_credentials"
+            });
+            const data = await response.json();
+            accessToken = data.access_token;
+        }
+
+        // 🔍 Buscar música e carregar letra, capa e player
+        async function buscarMusica() {
+            let input = document.getElementById("search").value;
+            if (!input) return alert("Digite artista e música!");
+
+            let [artist, song] = input.split(" - ");
+            if (!song) {
+                alert("Use o formato: Artista - Música");
+                return;
+            }
+
+            document.getElementById("song-title").innerText = `${artist} - ${song}`;
+            buscarLetra(artist, song);
+            buscarMusicaSpotify(artist, song);
+        }
+
+        // 📜 Buscar letra da música
+        async function buscarLetra(artist, song) {
+            try {
+                const response = await fetch(`${API_LYRICS}${encodeURIComponent(artist)}/${encodeURIComponent(song)}`);
+                const data = await response.json();
+                document.getElementById("lyrics").innerText = data.lyrics || "Letra não encontrada.";
+            } catch {
+                document.getElementById("lyrics").innerText = "Erro ao buscar letra.";
+            }
+        }
+
+        // 🎧 Buscar música no Spotify e tocar
+        async function buscarMusicaSpotify(artist, song) {
+            if (!accessToken) await obterTokenSpotify();
+
+            try {
+                const response = await fetch(`${API_SPOTIFY_SEARCH}${encodeURIComponent(artist + " " + song)}`, {
+                    headers: { Authorization: `Bearer ${accessToken}` }
+                });
+                const data = await response.json();
+
+                if (data.tracks.items.length > 0) {
+                    const track = data.tracks.items[0];
+                    document.getElementById("spotify-player").src = `https://open.spotify.com/embed/track/${track.id}`;
+                    document.getElementById("album-cover").src = track.album.images[0].url;
+                } else {
+                    document.getElementById("spotify-player").src = "";
+                    document.getElementById("lyrics").innerText = "Música não encontrada no Spotify.";
+                }
+            } catch {
+                document.getElementById("spotify-player").src = "";
+            }
+        }
+
+        // 🔥 Iniciar token no carregamento
+        obterTokenSpotify();
+    </script>
+</body>
+</html>
