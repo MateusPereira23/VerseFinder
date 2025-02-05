@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Séries</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #222;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        .nav-item:hover {
+            background-color: #444;
+            border-radius: 5px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 36px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #555;
+        }
+
+        .form-group {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .movie-cover {
+            position: relative;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .movie-cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .add-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .add-button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .movie-list {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Tamanho menor das capas */
+            gap: 20px;
+        }
+
+        .movie-item {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .movie-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .movie-item h3 {
+            color: #333;
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .movie-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .remove-btn {
+            background-color: #dc3545;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+
+        /* Estilo do modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #ccc;
+        }
+
+        .modal-back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 20px;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .modal-back-btn:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="bank-search.html" class="nav-item">Search</a>
+    </nav>
+
+    <div class="container">
+        <h1>Banco de Séries</h1>
+        <div>
+            <h2>Adicionar Filme/Série</h2>
+            <form id="movieForm">
+                <div class="form-group">
+                    <label for="movieName">Nome do Filme/Série:</label>
+                    <input type="text" id="movieName" required>
+                </div>
+                <div class="form-group movie-cover" id="movieCover"></div>
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+
+        <div class="movie-list" id="movieList">
+            <h2>Lista de Filmes/Séries</h2>
+        </div>
+    </div>
+
+    <!-- Modal para visualizar imagem maior -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <button class="modal-back-btn" onclick="closeModal()">Voltar</button>
+        <img id="modalImage" src="" alt="Imagem do Filme/Série">
+    </div>
+
+    <script>
+        const apiKey = 'f9824f87';
+
+        // Função para buscar capa do filme na API
+        document.getElementById('movieName').addEventListener('input', function() {
+            const movieName = document.getElementById('movieName').value;
+
+            if (movieName.length > 2) {
+                fetch(`https://www.omdbapi.com/?t=${movieName}&apikey=${apiKey}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.Response === 'True') {
+                            document.getElementById('movieCover').innerHTML = `
+                                <label>Imagem:</label>
+                                <div class="movie-cover">
+                                    <img src="${data.Poster}" alt="Capa do Filme" onclick="openModal('${data.Poster}')">
+                                    <button class="add-button" onclick="addMovie('${data.Poster}', '${movieName}')">Adicionar</button>
+                                </div>
+                            `;
+                        } else {
+                            document.getElementById('movieCover').innerHTML = '';
+                        }
+                    })
+                    .catch(error => console.error('Erro ao buscar o filme:', error));
+            } else {
+                document.getElementById('movieCover').innerHTML = '';
+            }
+        });
+
+        // Função para adicionar o filme/série à lista
+        function addMovie(imageSrc, movieName) {
+            const movieItem = {
+                name: movieName,
+                image: imageSrc
+            };
+
+            let movieList = JSON.parse(localStorage.getItem('movieList')) || [];
+            movieList.push(movieItem);
+            localStorage.setItem('movieList', JSON.stringify(movieList));
+
+            displayMovies();
+            document.getElementById('movieForm').reset();
+            document.getElementById('movieCover').innerHTML = '';
+        }
+
+        // Função para exibir os filmes/séries da lista
+        function displayMovies() {
+            const movieList = JSON.parse(localStorage.getItem('movieList')) || [];
+            const movieListElement = document.getElementById('movieList');
+            movieListElement.innerHTML = '<h2>Lista de Filmes/Séries</h2>';
+
+            movieList.forEach(movie => {
+                const movieItem = document.createElement('div');
+                movieItem.classList.add('movie-item');
+
+                const img = movie.image ? `<img src="${movie.image}" alt="Imagem do Filme/Série" onclick="openModal('${movie.image}')">` : '';
+                const movieTitle = document.createElement('h3');
+                movieTitle.textContent = movie.name;
+
+                movieItem.innerHTML = img + movieTitle.outerHTML + ` 
+                    <button class="remove-btn" onclick="removeMovie(this)">Remover</button>
+                `;
+                movieListElement.appendChild(movieItem);
+            });
+        }
+
+        // Função para abrir a imagem em tamanho maior
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc;
+            modal.style.display = 'flex';
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+        }
+
+        // Função para remover o título
+        function removeMovie(button) {
+            const movieItem = button.parentElement;
+            const movieName = movieItem.querySelector('h3').textContent;
+
+            let movieList = JSON.parse(localStorage.getItem('movieList')) || [];
+            movieList = movieList.filter(movie => movie.name !== movieName);
+            localStorage.setItem('movieList', JSON.stringify(movieList));
+
+            displayMovies();
+        }
+
+        // Carregar a lista de filmes ao iniciar
+        window.onload = function() {
+            displayMovies();
+        };
+    </script>
+</body>
+</html>
