@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VerseFinder</title>
+    <style>
+        /* Fundo colorido em gradiente */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #f00418, #fa0341, #fc04b1, #f304bf);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: white;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #FFD700;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Letra da Música */
+        .lyrics-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: rgba(34, 34, 34, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(255, 215, 0, 0.6);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #FFD700;
+            font-size: 1.8rem;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            text-align: center;
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+
+        /* Efeito de rolagem suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .top-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .top-button:hover {
+            background: #0056b3;
+        }
+
+        /* Ajuste para dispositivos móveis */
+        @media (max-width: 600px) {
+            pre {
+                font-size: 1.2rem;
+                line-height: 1.5;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .lyrics-container {
+                padding: 15px;
+            }
+        }
+
+        /* Player esconde o SoundCloud */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1e1e1e;
+            color: white;
+        }
+
+        .player-container {
+            margin: 50px auto;
+            width: 320px;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 166px;
+            position: absolute;
+            opacity: 0;
+        }
+
+        .controls {
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: background 0.3s;
+        }
+
+        .controls:hover {
+            background: #444;
+        }
+
+        .play-btn {
+            background: #FF6347;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 18px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="playlist.html">Playlist</a>
+    </nav>
+
+    <div class="player-container">
+        <!-- Adicione o id "sc-player" ao iframe -->
+        <iframe id="sc-player" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1193187568&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+        
+        <div class="controls" onclick="playPause()">
+            <button id="playButton" class="play-btn">▶️ Play</button>
+        </div>
+
+    </div>
+    <!-- Letra da Música -->
+    <div class="lyrics-container" id="lyrics-sayitright">
+        <h1>Nelly Furtado - Say it Right</h1>
+        <pre>In the day, in the night
+Say it right, say it all
+You either got it, or you don't
+You either stand, or you fall
+When your will is broken
+When it slips from your hand
+When there's no time for jokin'
+There's a hole in the plan
+
+Oh, you don't mean nothing at all to me (hey, oh, oh, hey)
+No, you don't mean nothing at all to me (hey, oh, oh, hey)
+But you got what it takes to set me free (hey, oh, oh, hey)
+Oh, you could mean everything to me (hey, oh, oh, hey)
+
+I can't say (say) that I'm not (not)
+Lost (lost) and at fault (fault)
+I can't say (say) that I don't (don't)
+Love the light (love) and the dark
+I can't say that I don't (don't)
+Know that I am alive
+And all of what I feel (feel)
+I could show (show you) you tonight, you tonight
+
+Oh, you don't mean nothing at all to me (hey, oh, oh, hey)
+No, you don't mean nothing at all to me (hey, oh, oh, hey)
+But you got what it takes to set me free (hey, oh, oh, hey)
+Oh, you could mean everything to me (hey, oh, oh, hey)
+
+From my hands, I could give you
+Something that I made
+From my mouth, I could sing you
+Another brick that I laid
+From my body (from my body), I could show you (I could show you)
+A place (a place) God knows (that only God knows)
+You should know the space is holy (ah, ah, ah, ah)
+Do you really wanna go?
+(Three, four)
+
+(Hey, hey, hey)
+(You don't mean nothin' at all to me)
+(Hey, hey)
+(Hey, hey, hey)
+(You don't mean nothin' at all to me)
+(Hey, hey)
+        </pre>
+        <button class="top-button" onclick="scrollToTop()">Voltar ao Topo</button>
+    </div>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script>
+        let iframe = document.getElementById("sc-player");
+        let widget = SC.Widget(iframe);
+        let isPlaying = false;
+        let playButton = document.getElementById("playButton");
+
+        function playPause() {
+            if (isPlaying) {
+                widget.pause();
+                playButton.innerText = "▶️ Play";
+            } else {
+                widget.play();
+                playButton.innerText = "⏸ Pause";
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+</html>
